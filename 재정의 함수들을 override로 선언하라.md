@@ -1,0 +1,31 @@
+---
+
+
+---
+
+<h1 id="재정의-함수들을-override로-선언한다.">재정의 함수들을 override로 선언한다.</h1>
+<p><strong>override</strong>란 기반 클래스로 부터 파생 클래스에서 가상(virtual) 함수를 재정의할 때 쓰는 것이다. ( 재정의 = “overriding” , 중복적재 = “overloading”)<br>
+재정의를 할 때 필수조건을 나열해 보겠다.</p>
+<ul>
+<li>기반 클래스 함수가 반드시 가상 함수이어야 한다.</li>
+<li>이름이 반드시 동일해야 한다.</li>
+<li>매개변수 형식들이 반드시 동일해야 한다.</li>
+<li>const성이 동일해야 한다.</li>
+<li>반환 형식과 예외 명세가 반드시 호환되어야 한다.</li>
+<li>참조 한정사들이 반드시 동일해야 한다.</li>
+</ul>
+<p>우선 <strong>참조 한정사</strong>를 알아보고 가자.</p>
+<pre class=" language-c"><code class="prism ++ language-c">class Widget <span class="token punctuation">{</span>
+public<span class="token punctuation">:</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token keyword">void</span> <span class="token function">dowork</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>			<span class="token comment">// *this가 왼값일 때에만 적용</span>
+	<span class="token punctuation">{</span> <span class="token keyword">return</span> values<span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+	<span class="token keyword">void</span> <span class="token function">dowork</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span><span class="token punctuation">;</span>		<span class="token comment">// *this가 오른값일 때에만 적용</span>
+	<span class="token punctuation">{</span> <span class="token keyword">return</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">move</span><span class="token punctuation">(</span>values<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+</code></pre>
+<p>왼값값에 대해 호출된 경우와 오른값에 대해 호출된 경우를 구분해야할 때 사용된다.</p>
+<p>다시 본론으로 넘어가 <strong>override</strong>를 사용해야 하는 이유는 재정의라는 것을 명시해준다는 시각적 효과가 있다. 그리고 <strong>override</strong>를 사용하면 재정의에서 문제가 있을 시 컴파일러가 보다 나은 경고 메시지를 보내줄 가능성이 크다.</p>
+<p>추가적으로 <strong>override</strong>는 c++11에서 새로 추가된 키워드이다. (final도 c++11에서 추가됨) 그래서 구식 코드에 override라는 이름이 사용되어 있을 수 있다.<br>
+하지만 그 이름을 변경할 필요는 없다. 재정의의 <strong>override</strong>는 멤버 함수 선언의 끝에 나올 때에만 예약된 의미를 가지고 작동한다.</p>
+
