@@ -18,8 +18,7 @@ C++98에서는 iterator로 부터 const_iterator를 얻기는 쉽지 않았다. 
 	<span class="token keyword">auto</span> it <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token function">cbegin</span><span class="token punctuation">(</span>container<span class="token punctuation">)</span><span class="token punctuation">,</span>		<span class="token comment">// 비멤버 cbegin</span>
 						<span class="token function">cend</span><span class="token punctuation">(</span>contatiner<span class="token punctuation">)</span><span class="token punctuation">,</span>		<span class="token comment">// 비멤버 cend</span>
 						targetVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
-	
-	<span class="token comment">//container.insert(it, inserVal);</span>
+	container<span class="token punctuation">.</span><span class="token function">insert</span><span class="token punctuation">(</span>it<span class="token punctuation">,</span>inserVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
 <p>C++11에서 비멤버 cbegin을 제공하지 않는다면, 직접 구현하면 된다.</p>
