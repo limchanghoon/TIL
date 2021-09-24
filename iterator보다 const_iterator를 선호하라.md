@@ -15,7 +15,6 @@ C++98에서는 iterator로 부터 const_iterator를 얻기는 쉽지 않았다. 
 <span class="token punctuation">{</span>
 	using std<span class="token punctuation">:</span><span class="token punctuation">:</span>cbegin<span class="token punctuation">;</span>
 	using std<span class="token punctuation">:</span><span class="token punctuation">:</span>cend<span class="token punctuation">;</span>
-	
 	<span class="token keyword">auto</span> it <span class="token operator">=</span> std<span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token function">cbegin</span><span class="token punctuation">(</span>container<span class="token punctuation">)</span><span class="token punctuation">,</span>		<span class="token comment">// 비멤버 cbegin</span>
 						<span class="token function">cend</span><span class="token punctuation">(</span>contatiner<span class="token punctuation">)</span><span class="token punctuation">,</span>		<span class="token comment">// 비멤버 cend</span>
 						targetVal<span class="token punctuation">)</span><span class="token punctuation">;</span>
