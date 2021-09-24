@@ -10,8 +10,8 @@ C++98에서는 iterator로 부터 const_iterator를 얻기는 쉽지 않았다. 
 템플릿 라이브러리 코드를 작성할 때 비멤버 함수로서 제공해야 하는 컨테이너들과 컨테이너 비슷한 자료구조들이 존재할 수 있다. (물론 필요 없는 함수도 존재함)그럴 때 다음과 같이 하나의 템플릿으로 일반화할 수 있다.</p>
 <pre class=" language-c"><code class="prism ++ language-c">template <span class="token operator">&lt;</span>typename C<span class="token punctuation">,</span> typename V<span class="token operator">&gt;</span>
 <span class="token keyword">void</span> <span class="token function">findAndInsert</span><span class="token punctuation">(</span>C<span class="token operator">&amp;</span> container<span class="token punctuation">,</span>
-				   <span class="token keyword">const</span> V<span class="token operator">&amp;</span> targetVal<span class="token punctuation">,</span>
-				   <span class="token keyword">const</span> V<span class="token operator">&amp;</span> inserVal<span class="token punctuation">)</span>
+					<span class="token keyword">const</span> V<span class="token operator">&amp;</span> targetVal<span class="token punctuation">,</span>
+					<span class="token keyword">const</span> V<span class="token operator">&amp;</span> inserVal<span class="token punctuation">)</span>
 <span class="token punctuation">{</span>
 	using std<span class="token punctuation">:</span><span class="token punctuation">:</span>cbegin<span class="token punctuation">;</span>
 	using std<span class="token punctuation">:</span><span class="token punctuation">:</span>cend<span class="token punctuation">;</span>
