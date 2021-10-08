@@ -9,10 +9,10 @@
 <span class="token keyword">public</span><span class="token operator">:</span>
 	<span class="token function">Widget</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 	<span class="token operator">~</span><span class="token function">Widget</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">// 선언만 해둔다</span>
-	
+	<span class="token comment">//</span>
 	<span class="token function">Widget</span><span class="token punctuation">(</span>Widget<span class="token operator">&amp;&amp;</span> rhs<span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">// 이동 연산</span>
 	Widget<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span>Widget<span class="token operator">&amp;&amp;</span> rhs<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 선언만 해둔다</span>
-	
+	<span class="token comment">//</span>
 	<span class="token function">Widget</span><span class="token punctuation">(</span><span class="token keyword">const</span> Widget<span class="token operator">&amp;</span> rhs<span class="token punctuation">)</span><span class="token punctuation">;</span>				<span class="token comment">// 복사 연산</span>
 	Widget<span class="token operator">&amp;</span> <span class="token keyword">operator</span><span class="token operator">=</span><span class="token punctuation">(</span><span class="token keyword">const</span> Widget<span class="token operator">&amp;</span> rhs<span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 선언만 해둔다</span>
 	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
