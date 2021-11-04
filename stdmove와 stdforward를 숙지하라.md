@@ -1,0 +1,27 @@
+# std::move와 std::forward를 숙지하라
+
+`std::move` 와 `std::forward` 는 그냥 캐스팅을 수행하는 함수이다. std::move는 주어진 인수를 무조건 오른값으로 캐스팅하고, std::forward는 특정 조건이 만족될 때에만 그런 캐스팅을 수행한다.  즉 std::move 자체는 이동이 아니라 캐스팅을 시켜 이동에 적합하다는 것을 말해주는 것이다. 하지만 `std::move()` 로 오른값 캐스팅을 해도 `이동`이 아닌 `복사`가 되는 경우도 있다. 바로 `const` 객체를 오른값 캐스팅해도  const 객체여서 복사 연산이 된다. 
+
+즉 `const 객체는 이동 요청을 해도 복사 연산으로 변환된다.`  
+
+`std::forward<T>()`는 조건부 캐스팅이다. `forward`의 인수가 `오른값으로` 초기화 되었으면 `오른값`으로 캐스팅하고, `왼값으로` 초기화 되었으면 그냥`왼값` 그대로이다.
+
+```c++
+void process(const Widget& lvalArg);		// 왼값들을 처리하는 함수
+void process(Widget&& rvalArg);				// 오른값들을 처리하는 함수
+
+template<typename T>
+void longAndProcess(T&& param)
+{
+    process(std::forward<T>(param));
+}
+...
+    Widget w;
+	longAndProcess(w);						// 왼값으로 호출
+	longAndProcess(std::move(w));			// 오른값으로 호출
+```
+
+호출된 longAndprocess에서 param은 왼값으로 호출되든 오른값으로 호출되는 하나의 왼값이다. (함수 매개변수는 언제나 왼값)
+
+하지만 템플릿 매개변수 T에 부호화되어 있는 정보를 이용해 std::forward<T>(param)을 사용하면 오른값으로 초기화됐던 값만 오른값으로 캐스팅할 수 있다!
+
